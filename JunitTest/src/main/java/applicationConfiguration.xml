@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+http://www.springframework.org/schema/context 
+http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+
+	<!-- example for package springtraining -->
+
+	<bean id="hello" class="com.yash.springtraining.Hello">
+		<property name="jill" ref="jill" />
+		<property name="jack" ref="jack" />
+	</bean>
+
+	<bean id="jill" class="com.yash.springtraining.Jill" scope="prototype">
+	</bean>
+
+	<bean id="jack" class="com.yash.springtraining.Jack" scope="prototype">
+	</bean>
+
+	<!-- example for package springtrainingexample -->
+	<!-- try by adding keywords lazy-int = "true", by default it is false -->
+
+	<bean id="newhello" class="com.yash.springtrainingexample.NewHello">
+		<property name="aobj" ref="aobj" />
+		<constructor-arg ref="bobj" />
+	</bean>
+
+	<bean id="aobj" class="com.yash.springtrainingexample.A">
+		<property name="a" value="99" />
+		<property name="msg" value="Hello guys" />
+	</bean>
+
+	<bean id="bobj" class="com.yash.springtrainingexample.B">
+		<constructor-arg value="88" />
+		<constructor-arg value="hey guys" />
+	</bean>
+
+
+	<!-- example for package springbytype -->
+	<bean id="mnHello" class="main.yash.springbytype.MNHello"
+		autowire="byType">
+		<!-- <property name="mobj" ref="mobj" /> -->
+		<!-- <constructor-arg ref="nobj" /> -->
+	</bean>
+
+	<bean id="mobj" class="main.yash.springbytype.M">
+		<property name="a" value="99" />
+		<property name="msg" value="Hello guys" />
+	</bean>
+
+	<bean id="nobj" class="main.yash.springbytype.N">
+		<constructor-arg value="88" />
+		<constructor-arg value="hey guys" />
+	</bean>
+
+
+</beans>
+
+
